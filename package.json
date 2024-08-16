@@ -1,0 +1,27 @@
+{
+  "name": "basic_crud_app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdeepak199/basic_crud_app.git"
+  },
+  "author": "iamdeepak199",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamdeepak199/basic_crud_app/issues"
+  },
+  "homepage": "https://github.com/iamdeepak199/basic_crud_app#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "chalk": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Application Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body style="background-color: #e0ffff;">
+        <div class="content">
+            <div class="container">
+                <h1>Application Form</h1>
+                <form method="post" action="/users" enctype="multipart/form-data">
+                    <label for="id">Employee Id:</label>
+                    <input type="text" id="id" name="id" required>    
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="message">Address:</label>
+                    <textarea id="message" name="Address" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>    
+    </body>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent HTML submission
+            
+            // Create payload of type multipart/form-data (awlays of this type when using the FormData() constructor):
+            const fd = new FormData(form);
+
+            // Convert to URL-encoded string:
+            const urlEncoded = new URLSearchParams(fd).toString();
+            
+            fetch('/users', {
+                method: "POST",
+                body: urlEncoded, // just 'fd' for multipart/form-data
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                    // Content-type header should only be set if data is url-encoded! A FormData object will set the header as multipart/form-data automatically (and setting it manually may lead to an error)
+                    }
+                }
+            );
+            }
+        );
+    </script>
+</html>
+
+
